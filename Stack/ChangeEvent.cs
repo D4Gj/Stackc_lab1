@@ -21,7 +21,7 @@ namespace Stack
                     i = j;
                 }
             }
-
+            Console.WriteLine();
         }
     }
 }
