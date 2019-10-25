@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
-    class ChangeEvent
+    public class ChangeEvent
     {
-        public DateTime;
+        public static void choose(int n, int[] f,int[] l)
+        {
+            int i, j;
+            i = 0;
+            Console.Write(i + " ");
+            for (j = 1; j < n; j++)
+            {
+                if (f[j] >= l[i])
+                {
+                    Console.Write(j + " ");
+                    i = j;
+                }
+            }
+
+        }
     }
 }

@@ -38,5 +38,6 @@ namespace Stack.Model
             throw new Exception("Стек пуст");
         }
         private Node Top { get; set; }
+
     }
 }
