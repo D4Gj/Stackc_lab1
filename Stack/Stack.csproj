@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryTree.cs" />
     <Compile Include="BubbleSort.cs" />
     <Compile Include="ChangeEvent.cs" />
     <Compile Include="CountingSort.cs" />

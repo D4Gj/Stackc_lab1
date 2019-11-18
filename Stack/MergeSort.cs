@@ -8,7 +8,7 @@ public static class MergeSort
 {    
 
    public static int[] MergeSorting(int[] array, int start, int end)
-    {
+   {
         
         if (end - start < 2)
             return new int[] { array[start] };
@@ -39,13 +39,15 @@ public static class MergeSort
         }
 
       
-        while (idxL < left.Length)
+        while  (idxL < left.Length)
             result[i++] = left[idxL++];
 
         while (idxR < right.Length)
             result[i++] = right[idxR++];
 
+
         return result;
+        
     }
 }
 

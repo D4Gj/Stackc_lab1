@@ -8,7 +8,7 @@ namespace Stack
 {
     class BubbleSort
     {
-        public static void bubbleSort(int[] arr)
+        public static int[] bubbleSort(int[] arr)
         {
             int n = arr.Length;
             for (int i = 0; i < n - 1; i++)
@@ -19,7 +19,7 @@ namespace Stack
                         arr[j] = arr[j + 1];
                         arr[j + 1] = temp;
                     }
-
+            return arr;
         }
     }
 }
