@@ -120,112 +120,97 @@ namespace Stack
             tree.Insert(55);
             tree.Insert(100);
             tree.Insert(77);
-            long number = tree.CountElements();
-            Console.WriteLine("Amount of elems:{0}", number);
+            tree.Insert(66);
+            tree.Insert(34);
+            BinaryTreeOutput.Print(tree);
+            tree.Remove(66);
             BinaryTreeOutput.Print(tree);
             #endregion
             #endregion
-            #region Graph
+             #region Graph
 
-            var graph = new Graph();
+             var graph = new Graph();
 
-            var v1 = new Vertex(1);
-            var v2 = new Vertex(2);
-            var v3 = new Vertex(3);
-            var v4 = new Vertex(4);
-            var v5 = new Vertex(5);
-            var v6 = new Vertex(6);
-            var v7 = new Vertex(7);
+             var v1 = new Vertex(1);
+             var v2 = new Vertex(2);
+             var v3 = new Vertex(3);
+             var v4 = new Vertex(4);
+             var v5 = new Vertex(5);
+             var v6 = new Vertex(6);
+             var v7 = new Vertex(7);
 
-            graph.AddVertex(v1);
-            graph.AddVertex(v2);
-            graph.AddVertex(v3);
-            graph.AddVertex(v4);
-            graph.AddVertex(v5);
-            graph.AddVertex(v6);
-            graph.AddVertex(v7);
+             graph.AddVertex(v1);
+             graph.AddVertex(v2);
+             graph.AddVertex(v3);
+             graph.AddVertex(v4);
+             graph.AddVertex(v5);
+             graph.AddVertex(v6);
+             graph.AddVertex(v7);
 
-            graph.AddEdge(v1, v2);
-            graph.AddEdge(v1, v3);
-            graph.AddEdge(v4, v5);
-            graph.AddEdge(v2, v5);
-            graph.AddEdge(v2, v6);
-            graph.AddEdge(v6, v5);
-            ///
-            /// Matrix graph
-            ///*
-            var matrix = graph.GetMatrix();
-            for(int i = 0; i < graph.VertexCount; i++)
-            {
-                Console.Write(i+1+" ");
-                for (int j=0; j < graph.EdgesCount; j++)
-                {
-                    Console.Write("[" + matrix[i, j] + "]");
-                }
-                Console.WriteLine();
-            }
+             graph.AddEdge(v1, v2);
+             graph.AddEdge(v1, v3);
+             graph.AddEdge(v4, v5);
+             graph.AddEdge(v2, v5);
+             graph.AddEdge(v2, v6);
+             graph.AddEdge(v6, v5);
 
-            Console.WriteLine();
-            Console.WriteLine();
+             ///
+             /// Adjacency graph
+             ///
+             GetVertex(graph, v1);
+             GetVertex(graph, v2);
+             GetVertex(graph, v3);
+             GetVertex(graph, v4);
+             GetVertex(graph, v5);
+             GetVertex(graph, v6);
+             GetVertex(graph, v7);
 
-            ///
-            /// Adjacency graph
-            ///
-            GetVertex(graph, v1);
-            GetVertex(graph, v2);
-            GetVertex(graph, v3);
-            GetVertex(graph, v4);
-            GetVertex(graph, v5);
-            GetVertex(graph, v6);
-            GetVertex(graph, v7);
-            
 
+             #endregion
+             #region Dijkstra
+             int [,] graph_1 =  {
+                          { 0, 6, 0, 0, 0, 0, 0, 9, 0 },
+                          { 6, 0, 9, 0, 0, 0, 0, 11, 0 },
+                          { 0, 9, 0, 5, 0, 6, 0, 0, 2 },
+                          { 0, 0, 5, 0, 9, 16, 0, 0, 0 },
+                          { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
+                          { 0, 0, 6, 0, 10, 0, 2, 0, 0 },
+                          { 0, 0, 0, 16, 0, 2, 0, 1, 6 },
+                          { 9, 11, 0, 0, 0, 0, 1, 0, 5 },
+                          { 0, 0, 2, 0, 0, 0, 6, 5, 0 }
+                             };
+             for (int i = 0; i < 9; i++)
+             {
+                 Console.Write(i + 1 + " ");
+                 for (int j = 0; j < 9; j++)
+                 {
+                     Console.Write("[" + graph_1[i, j] + "]"+ "\t");
+                 }
+                 Console.WriteLine();
+             }            
+             DijkstraAlgo(graph_1,  3, 9);
+             */
+             #endregion
+             #region Hash
+             var Table = new HashTable();
+             Table.insert(19, "Book");
+             Table.insert(9, "Book2");
+             Table.insert(20, "Book3");
+             Table.insert(100, "Book4");
+             Table.insert(15, "Book5");
+
+             Table.print();
+             #endregion
+             #region SeparateHashing
+             var sh = new SeparateHashing();
+             sh.insert(10, "first");
+             sh.insert(10, "second");
+            sh.print();
+            Console.WriteLine(sh.retrieve(10));
+            sh.remove(10);
+            Console.WriteLine(sh.retrieve(10));
             #endregion
-            #region Dijkstra
-            int [,] graph =  {
-                         { 0, 6, 0, 0, 0, 0, 0, 9, 0 },
-                         { 6, 0, 9, 0, 0, 0, 0, 11, 0 },
-                         { 0, 9, 0, 5, 0, 6, 0, 0, 2 },
-                         { 0, 0, 5, 0, 9, 16, 0, 0, 0 },
-                         { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
-                         { 0, 0, 6, 0, 10, 0, 2, 0, 0 },
-                         { 0, 0, 0, 16, 0, 2, 0, 1, 6 },
-                         { 9, 11, 0, 0, 0, 0, 1, 0, 5 },
-                         { 0, 0, 2, 0, 0, 0, 6, 5, 0 }
-                            };
-            for (int i = 0; i < 9; i++)
-            {
-                Console.Write(i + 1 + " ");
-                for (int j = 0; j < 9; j++)
-                {
-                    Console.Write("[" + graph[i, j] + "]"+ "\t");
-                }
-                Console.WriteLine();
-            }            
-            DijkstraAlgo(graph,  3, 9);
-            #endregion*/
-            #region Hash
-            var Table = new HashTable();
-            Table.insert(1, "Book");
-            Table.insert(2, "Book2");
-            Table.insert(3, "Book3");
-            Table.insert(4, "Book4");
-            Table.insert(5, "Book5");
-            Table.insert(6, "Book6");
-            Table.insert(7, "Book7");
-            Table.insert(8, "Book8");
-            Table.insert(9, "Book9");
-            Table.insert(10, "Book10");
-            Table.insert(11, "Book11");
-            Console.WriteLine(Table.retrieve(6));
-
-            //Table.print();
-            #endregion
-            #region SeparateHashing
-            var sh = new SeparateHashing();
-            sh.insert(10, "asd");
-            #endregion
-            #endregion
+            //#endregion*/
             Console.ReadLine();
         }
         #region adds

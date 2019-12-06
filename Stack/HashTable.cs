@@ -26,7 +26,7 @@ namespace Stack
                 return data;
             }
         }
-        const int maxSize = 10; //our table size
+        const int maxSize = 10; //table size
         hashentry[] table;
         public HashTable()
         {
@@ -54,7 +54,7 @@ namespace Stack
         }
         public void insert(int key, string data)
         {
-            if (!checkOpenSpace())//if no open spaces available
+            if (!checkOpenSpace())
             {
                 Console.WriteLine("table is at full capacity!");
                 return;
@@ -109,15 +109,6 @@ namespace Stack
                 }
             }
         }     
-        private int hash1(int key)
-        {
-            return key % maxSize;
-        }
-        private int hash2(int key)
-        {
-            //must be non-zero, less than array size, ideally odd
-            return 5 - key % 5;
-        }
     }
 }
        
